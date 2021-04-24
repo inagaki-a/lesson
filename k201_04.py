@@ -1,9 +1,5 @@
-a=1.1
-b=0
+import decimal
+d = decimal.Decimal('1.1')
 
-for i in range(3):
-    b = b + a
-print('{:.1f}'.format(b))
-
-b = a * a * a
-print('{:.3f}'.format(b))
+print(d + d + d)
+print(d * d * d)
