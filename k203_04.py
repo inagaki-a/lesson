@@ -19,6 +19,6 @@ for i in range(10):
     #合計残額＋積立額から年利7％で利息を計算する
     #合計残額に利息を足す
     d = decimal.Decimal('0.07')
-    risoku = round(risokumaeganpon*d)
+    risoku = decimal.Decimal(round(risokumaeganpon*d))
     ganpon = ganpon + risoku
     print(str(i) + "年目" + "{:,}".format(risokumaeganpon) + "円" + "{:,}".format(ganpon) + "円")
