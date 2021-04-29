@@ -8,12 +8,7 @@ class Cow:
 
 
     def speak_info(self):
-        sex = get_sex(self)
         return (f'({self.name} {self.age} 歳, {self.sex}, {self.weight}Kg)')
-
-    def get_sex(self):
-        print("a")
-
 
 
 cow1 = Cow("はなこ", 3, False, 100.4)
