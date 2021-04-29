@@ -25,7 +25,7 @@ def isenglish(value):
     :param value: チェック対象の文字列
     :rtype: チェック対象文字列が、全て半角英字と　' . ␣ の場合 True
     """
-    return re.match(r"^[A-Za-z\s.']+[\s'.-]", value) is not None
+    return re.match(r"^[A-Za-z]+[\s'.-]", value) is not None
 
 def isephone(value):
     """
