@@ -1,6 +1,5 @@
 import re
 
-#数値チェック
 def isInteger(value):
     return re.match(r"^\d+$", value) is not None
 
@@ -20,45 +19,29 @@ def isAlpha(value):
     """
     return re.match(r"^[a-zA-Z]+$", value) is not None
 
-def eibuncheck(value):
-    '''
-    英文チェック 半角英文　or ␣　or . or '
-    '''
-    i = len(value)#文字数取得
-    for k in range(i):
-        moji = value[k]
-        if isAlpha(moji) == True or moji == " " or moji == '.' or moji == "'":
-            if k == i - 1:
-                return not None
-        else:
-            return None
-            break
+def isenglish(value):
+    """
+    半角英分チェック
+    :param value: チェック対象の文字列
+    :rtype: チェック対象文字列が、全て半角英字と　' . ␣ の場合 True
+    """
+    return re.match(r"^[A-Za-z]+[\s'.-]", value) is not None
 
-def phonechek(value):
-    '''
-    電話チェック 半角数字
-    '''
-    i = len(value)#文字数取得
-    for k in range(i):
-        moji = value[k]
-        if k == 0 or k == i - 1:
-            if isInteger(moji) == None:
-                return False
-                break
-            elif k == i - 1:
-                return not None
-        elif isInteger(moji) == None:
-            return None
-            break
-            
-        
+def isephone(value):
+    """
+    電話番号チェック
+    :param value: チェック対象の文字列
+    :rtype: チェック対象文字列が、全て半角英字と　' . ␣ の場合 True
+    """
+    return re.match(r"[0-9]+[0-9-]+[0-9]", value) is not None
+
 comment = input("文字を入力してください")
 
 #すべてが半角数字（第1条件）
 int_result = isInteger(comment)
 alfanum_result = isAlphaNumeric(comment)
-eibuncheck_result = eibuncheck(comment)
-phonechek_result = phonechek(comment)
+eibuncheck_result = isenglish(comment)
+phonechek_result = isephone(comment)
 
 if int_result == True:
     print("The character strings are all half-width numbers.")
