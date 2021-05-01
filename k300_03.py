@@ -12,8 +12,8 @@ class CarryShop:
         CarryShop.stock = stock
         return stock
     
-    def print_name(self):
-        print(self.name)
+    def get_name(self):
+        return self.id +  ":" + self.name
 
 shop_A = CarryShop("A", "大阪")
 shop_B = CarryShop("B", "名古屋")
@@ -24,9 +24,24 @@ shop_C = CarryShop("C", "北海道")
 #shopps.append(CarryShop("B", "名古屋"))
 #shopps.append(CarryShop("C", "北海道"))
 
-sell_shop = input("A B C いずれかを入力してください")
-shop_name = "shop_" + sell_shop
-print(shop_name)
-shop_name.CarryShop.print_name()
+#インスタンスの呼出しを変数で実行したいけどできなかった
 
-print(CarryShop.sell(sell_shop))
+while CarryShop.stock != 0:
+    print("在庫" + str(CarryShop.stock))
+    print(shop_A.get_name(), shop_B.get_name(), shop_C.get_name())
+    sell_shop = input("A B C いずれかを入力してください")
+
+    if sell_shop == "A":
+        print(shop_A.sell())
+    elif sell_shop == "B":
+        print(shop_B.sell())
+    elif sell_shop == "C":
+        print(shop_C.sell())
+    else:
+        print("存在しません")
+        exit
+print("在庫切れ　閉店です")
+
+#shop_name = str("shop_" + str(sell_shop))
+#print(shop_name)
+#print((shop_name).sell())
