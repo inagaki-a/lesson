@@ -24,7 +24,6 @@ shop_C = CarryShop("C", "北海道")
 #shopps.append(CarryShop("B", "名古屋"))
 #shopps.append(CarryShop("C", "北海道"))
 
-#インスタンスの呼出しを変数で実行したいけどできなかった
 
 while CarryShop.stock != 0:
     print("在庫" + str(CarryShop.stock))
