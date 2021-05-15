@@ -4,7 +4,7 @@ class Human:
     def __init__(self, name, weight, pet): #初期化
         self.__name = name 
         self.weight = weight 
-        self.pet = pet
+        self.pet = Pet
     
     #名前を取得する
     def get_name(self):
@@ -13,6 +13,9 @@ class Human:
     #体重を取得する
     def get_weight(self):
         return self.weight
+
+    def into(self):
+        return '飼い主：' + Human.get_name(self) + str(Human.get_weight(self)) + '㎏　ペット：' + Pet.pet_get_name(self) + " " + str(Pet.pet_get_weight(self)) + "㎏"
 
 class Pet(Human):
 
@@ -24,15 +27,12 @@ class Pet(Human):
     #名前を取得する
     def pet_get_name(self):
         return self.pet
-
-    #名前を設定する
     
     #体重を取得する
     def pet_get_weight(self):
         return self.pet_weight
 
-    def into(self):
-        return '飼い主：' + Human.get_name(self) + str(Human.get_weight(self)) + '㎏　ペット：' + Pet.pet_get_name(self) + " " + str(Pet.pet_get_weight(self)) + "㎏"
+
 
 pet = Pet('たろ', 100.3, 'たろたろ', '10.2')
 pet2 = Pet('じろ', 70.5, 'じろじろ', '30.2')
