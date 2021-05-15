@@ -1,28 +1,28 @@
 class Human:
 
     #初期化メソッド
-    def __init__(self, name, weight, pet): #初期化
+    def __init__(self, name, weight, Pet): #初期化
         self.__name = name 
         self.weight = weight 
         self.pet = Pet
     
     #名前を取得する
     def get_name(self):
-        return self.__name
+        return self.name
 
     #体重を取得する
     def get_weight(self):
         return self.weight
 
-    def into(self):
-        return '飼い主：' + Human.get_name(self) + str(Human.get_weight(self)) + '㎏　ペット：' + Pet.pet_get_name(self) + " " + str(Pet.pet_get_weight(self)) + "㎏"
+    def info(self):
+        return '飼い主：' + self.__name + self.weight + '㎏　ペット：' + self.pet.name + self.pet.weight
 
-class Pet(Human):
+class Pet:
 
     #初期化メソッド
-    def __init__(self, name, weight, pet, pet_weight):
-        super(Pet, self).__init__(name, weight, pet)
-        self.pet_weight = pet_weight
+    def __init__(self, name, weight):
+        self.name = name
+        self.weight = weight
 
     #名前を取得する
     def pet_get_name(self):
@@ -30,11 +30,14 @@ class Pet(Human):
     
     #体重を取得する
     def pet_get_weight(self):
-        return self.pet_weight
+        return self.weight
+    
 
+pet1 = Pet('たろたろ', '10.2')
+human1 = Human('たろ', '100.3', pet1)
 
+pet2 = Pet('じろじろ', '30.2')
+human2 = Human('じろじろ', '70.5', pet2)
 
-pet = Pet('たろ', 100.3, 'たろたろ', '10.2')
-pet2 = Pet('じろ', 70.5, 'じろじろ', '30.2')
-print(pet.into())
-print(pet2.into())
+print(human1.info())
+print(human2.info())
