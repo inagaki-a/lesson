@@ -32,8 +32,7 @@ class Car_Power(Car):
         '''
         合計回転数
         '''
-        #total_rotation = Gasoline_Engine.run_roatation(fuel) + Motor_Engin.run_roatation(buttery)
-        print(self.carpower2)
+        total_rotation = Gasoline_Engine.run_roatation(fuel) + Motor_Engin.run_roatation(buttery)
         return total_rotation
 
 class Gasoline_Engine(Car_Power):
