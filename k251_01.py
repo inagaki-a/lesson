@@ -1,21 +1,58 @@
+from typing import ItemsView
+
+
 class Player:
-    def __init__(self, name, level): #初期化
+    items = dict()
+
+    def __init__(self, name, level, items: dict): #初期化
         self.name = name
         self.level = level
-        #self.items = items
+        self.items = items
 
     def info(self):
-        print("Player Name:" + self.name + "Level:" + str(self.level))
+        '''
+        プレイヤーの情報を表示
+        '''
+        return "Player Name:" + self.name + "Level:" + str(self.level)
+
+    def get_itme(self, item):
+        '''
+        アイテムを取得する
+        '''
+        if self.items == []:
+            self.items = { item.get_name() : item.get_count()}
+        else:
+            self.items[item.get_name()] = item.get_count()
+
+    def hold_items(self, item):
+        '''
+        保持しているアイテム情報
+        '''
+        return self.items.get(item)
     
-class Itme:
+class Item:
     def __init__(self, name, count):
         self._name = name
         self._count = count
-        return print(self.name)
+    
+    def item_list(self):
+        return Player.itnems
+
+    def get_name(self):
+        return self._name
+    
+    def get_count(self):
+        return self._count
 
 
-player = Player("カリュプソー",99)
-player.info()
-item_dict = dict([('貝殻', '21'), ('布団代わりのワカメ', '3'), ('サングラス', '1'), ('浮き輪', '1')])
-item = Itme(item_dict)
-print(item)
+calypso = Player("カリピュソー", 99, [])
+item1 = Item('貝殻', 21)
+item2 = Item('布団代わりのワカメ', 3)
+item3 = Item('サングラス', 1)
+item4 = Item('浮き輪', 1)
+calypso.get_itme(item1)
+calypso.get_itme(item2)
+calypso.get_itme(item3)
+calypso.get_itme(item4)
+
+print(calypso.hold_items("貝殻"))
