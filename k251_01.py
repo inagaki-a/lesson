@@ -7,7 +7,7 @@ class Player:
     def __init__(self, name, level, items: dict): #初期化
         self.name = name
         self.level = level
-        self.items = items
+        self.bag = Bag(items)
 
     def info(self):
         '''
@@ -43,6 +43,11 @@ class Item:
     
     def get_count(self):
         return self._count
+
+class Bag:
+
+    def getitems(item):
+        items = item
 
 
 calypso = Player("カリピュソー", 99, [])
