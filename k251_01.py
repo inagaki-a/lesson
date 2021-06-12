@@ -36,7 +36,7 @@ class Item:
         self._count = count
     
     def item_list(self):
-        return Player.itnems
+        return Player.items
 
     def get_name(self):
         return self._name

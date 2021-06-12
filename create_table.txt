@@ -1,0 +1,33 @@
+create table users(
+user_id varchar(10) not null primary key comment 'ユーザーID',
+user_nm varchar(30) not null comment 'ユーザー名',
+register_dt datetime not null comment '登録日時',
+version int not null comment 'バージョン'
+);
+
+create table m_items(
+item_no int not null not null primary key comment '商品番号',
+item_nm varchar(30) not null comment '商品名',
+register_dt datetime not null comment '登録日時',
+version int not null comment 'バージョン'
+);
+
+create table t_drders(
+user_id varchar(10) not null comment 'ユーザーID',
+order_no int not null comment '注文番号',
+order_date date not null comment '注文日',
+shipping_address varchar(200) comment '発送先',
+register_dt datetime not null comment '登録日時',
+version int not null comment 'バージョン',
+primary key(user_id, order_no)
+);
+
+create table t_order_details(
+user_id varchar(10) not null comment 'ユーザーID',
+order_no int not null comment '注文番号',
+item_no int not null comment '商品番号',
+quantity int comment '個数',
+register_dt datetime not null comment '登録日時',
+version int not null comment 'バージョン',
+primary key(user_id, order_no, item_no)
+);
